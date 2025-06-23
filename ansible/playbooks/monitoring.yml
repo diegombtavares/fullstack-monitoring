@@ -11,8 +11,8 @@
   roles:
     - flask_app
 
-- name: Configurar servidor de monitoramento
-  hosts: monitoring
-  become: true
-  roles:
-    - monitoring
+# - name: Configurar servidor de monitoramento
+#   hosts: monitoring
+#   become: true
+#   roles:
+#     - monitoring

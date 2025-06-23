@@ -21,7 +21,11 @@
     curl -fsSL https://get.docker.com | sh
   args:
     creates: /usr/bin/docker
-  notify: restart docker
+
+- name: Reiniciar serviço Docker
+  ansible.builtin.service:
+    name: docker
+    state: restarted
 
 - name: Adicionar usuário atual ao grupo docker
   ansible.builtin.user:

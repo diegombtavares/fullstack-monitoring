@@ -1,3 +1,4 @@
 keys
 .terraform*
 terraform.*
+ansible.log

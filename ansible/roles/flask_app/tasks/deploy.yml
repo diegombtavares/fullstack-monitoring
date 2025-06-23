@@ -1,0 +1,28 @@
+- name: Verifica se o Docker está rodando
+  become: true
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: true
+
+- name: Create docker-compose.yaml
+  template:
+    src: "templates/docker-compose.yml.j2"
+    dest: "{{ ansible_user_dir }}/docker-compose.yml"
+    mode: "644"
+
+- name: Remove docker services
+  community.docker.docker_compose_v2:
+    project_src: "{{ ansible_user_dir }}"
+    state: absent
+    remove_orphans: true
+
+- name: Start projects containers
+  community.docker.docker_compose_v2:
+    project_src: "{{ ansible_user_dir }}"
+    state: present
+    wait: true
+    check_files_existing: true
+    remove_orphans: true
+    recreate: "always"
+    wait_timeout: 180

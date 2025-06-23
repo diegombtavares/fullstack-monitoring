@@ -1,0 +1,7 @@
+services:
+  flask-app:
+    container_name: application
+    image: diegombtavares/flask-application:latest
+    restart: always
+    ports:
+      - "5555:5555"
