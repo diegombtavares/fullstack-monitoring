@@ -1,0 +1,4 @@
+2025-06-23 14:53:55,035 p=20074 u=diegotavares n=ansible INFO| - Role roles/nginx was created successfully
+2025-06-23 14:54:10,742 p=20328 u=diegotavares n=ansible INFO| - Role roles/monitoring was created successfully
+2025-06-23 15:01:16,067 p=21792 u=diegotavares n=ansible INFO| - Role roles/flask_app was created successfully
+2025-06-23 15:02:56,358 p=22321 u=diegotavares n=ansible INFO| - Role roles/commons was created successfully

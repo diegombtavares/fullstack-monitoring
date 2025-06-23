@@ -1,6 +1,0 @@
----
-- name: Provisioner infraestrutura
-  hosts: all
-  become: true
-  roles:
-    - monitoring
