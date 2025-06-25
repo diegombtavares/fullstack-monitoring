@@ -5,6 +5,22 @@
     state: started
     enabled: true
 
+- name: Garante que o diretório prometheus existe
+  ansible.builtin.file:
+    path: /home/ubuntu/prometheus
+    state: directory
+    owner: ubuntu
+    group: ubuntu
+    mode: '0755'
+
+- name: Gera o prometheus.yml com base no template
+  ansible.builtin.template:
+    src: templates/prometheus.yml.j2
+    dest: /home/ubuntu/prometheus/prometheus.yml
+    owner: ubuntu
+    group: ubuntu
+    mode: '0644'
+
 - name: Create docker-compose.yaml
   template:
     src: "templates/docker-compose.yml.j2"

@@ -11,8 +11,12 @@
   roles:
     - flask_app
 
-# - name: Configurar servidor de monitoramento
-#   hosts: monitoring
-#   become: true
-#   roles:
-#     - monitoring
+- name: Configurar servidor de monitoramento
+  hosts: monitoring
+  vars:
+    node_exporter_targets: "{{ groups['application'] | map('regex_replace', '$', ':9100') | list }}"
+    app_latency_targets: "{{ groups['application'] | map('regex_replace', '$', ':5555') | list }}"
+    cadvisor_targets: "{{ groups['application'] | map('regex_replace', '$', ':8080') | list }}"
+  become: true
+  roles:
+    - monitoring
