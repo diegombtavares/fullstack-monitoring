@@ -11,7 +11,7 @@ variable "key_name" {
 }
 
 variable "allowed_ports" {
-  default = [22, 80, 5555]
+  default = [22, 80, 5555, 9100, 9090, 3000, 8080]
 }
 
 variable "cidr_blocks" {
